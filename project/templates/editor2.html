@@ -1,0 +1,269 @@
+{% load static %}
+<html>
+    <head>
+
+        <!--link rel="stylesheet" type="text/css" href="app.css"-->
+            <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
+            <!---script src="app.js"></script---->
+            <title>SANDtex</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href='{% static "/assets/css/main.css" %}' />
+        </head>
+		<style>
+#top_horrizontal
+{
+    height:5%;
+    width:100%;
+    border: 1px solid #aaaaaa;
+}
+
+#middle_horrizontal
+{
+    height:5%;
+    width:100%;
+    border: 1px solid #aaaaaa;
+}
+
+#bottom_horrizontal
+{
+    height:90%;
+    width:100%;
+    display:flex;
+    border: 1px solid #aaaaaa;
+}
+
+#saved_projects
+{
+    height:100%;
+    width:10%;
+    border: 1px solid #aaaaaa;
+}
+
+#editor
+{
+    height:100%;
+    flex:40%;
+    border: 1px solid #aaaaaa;
+    float:left;
+}
+
+#compiler
+{
+    height:100%;
+    flex:40%;
+    border: 1px solid #aaaaaa;
+    float:right;
+}
+
+.button
+{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor:pointer;
+}
+
+.save
+{
+    float:left;
+}
+
+.compile
+{
+    float:right;
+}
+
+.share{
+    float:right;
+}
+
+#pdf
+{
+    height:100%;
+    width:100%;
+}
+</style>
+<body>
+    <body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo">SANDtex</a>
+				<nav>
+					<a href='#menu'>Menu</a>
+				</nav>
+			</header>
+<!--            {% if user.is_authenticated %}-->
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+                    <li><p><b>Welcome {{user.first_name}} {{user.last_name}}</b></p></li>
+<!--                    <li><a href="{% url 'home' %}">Home</a></li>-->
+<!--                    <li><a href="{% url 'about' %}">About Us</a></li>-->
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+				</ul>
+			</nav>
+
+<!--        <div id="top_horrizontal"></div>-->
+
+        <div id="middle_horrizontal">
+            <a href="{% url 'save' %}"><button class="button save" onclick="show()" id="button1">Save</button></a>
+<!--            <button class="button share">Share</button>-->
+            <a href="{% url 'compile' %}"><button class="button compile" onclick="comp()" id="button2">Compile</button></a>
+            <a href="{% url 'pdf' %}"><button class="button compile" onclick="pdf()" id="button3">Preview</button></a>
+        </div>
+
+        <div id="bottom_horrizontal" class="main">
+            <div id="saved_projects"></div>
+
+            <div id="editor">
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{new}
+\date{October 2018}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly dbizarre and inexplicable.
+There is another theory which states that this has already happened.
+
+
+\section{Conclusion}
+``I always thought something was fundamentally wrong with the universe'' \citep{adams1995hitchhiker}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
+            </div>
+
+            <div id="compiler">
+           <!-- <embed src="ile://C:/Users/NikhilArora/Desktop/sandtex/minor_project/minor.pdf" type="application/pdf"   height="100%" width="100%"> -->
+<!--                <embed src="/Users/NikhilArora/Desktop/sandtex/minor_project/project/templates/new.pdf" type="application/pdf"-->
+<!--                    height="100%" width="100%">-->
+     <iframe id="frame" src='{% static "minor.pdf" %}' width="100%" height="100%"></iframe>
+
+                    </div>
+
+
+    <!-- Scripts -->
+			<script src='{% static "/assets/js/jquery.min.js" %}'></script>
+			<script src='{% static "/assets/js/browser.min.js" %}'></script>
+			<script src='{% static "/assets/js/breakpoints.min.js" %}'></script>
+			<script src='{% static "/assets/js/util.js" %}'></script>
+			<script src='{% static "/assets/js/main.js" %}'></script>
+        </body>
+
+
+
+
+    <script>
+	  var e = ace.edit("editor");
+      e.setShowPrintMargin(false);
+      e.getSession().setMode("ace/mode/tex");
+
+
+//var x = document.getElementById("editor");
+
+// changes
+//var code =e.getSession().getValue();
+
+function pdf()
+{
+    var URL = "{% url 'pdf' %}";
+    var code =e.getSession().getValue();
+    var data = {'code': code};
+    $.get(URL, function(response){
+            if(response === 'success')
+            {
+                //alert('Yay!');
+                document.getElementById('frame').contentDocument.location.reload(true);
+
+            }
+            else
+            {
+                alert('Error! ');
+
+            }
+            });
+}
+    $('#button3').click(function(e){
+                        e.preventDefault();
+                        // Code goes here
+                        });
+
+
+function show()
+{
+    var URL = "{% url 'save' %}";
+    var code =e.getSession().getValue();
+    var data = {'code': code};
+    $.get(URL, data, function(response){
+           if(response === 'success')
+           {
+               alert('Yay!');
+
+           }
+           else
+           {
+               alert('Error! ');
+
+           }
+           });
+    }
+    $('#button1').click(function(e){
+                        e.preventDefault();
+                        // Code goes here
+                        });
+
+
+
+
+function comp()
+{
+    var URL = "{% url 'compile' %}";
+    var code =e.getSession().getValue();
+    var data = {'code': code};
+    $.get(URL, function(response){
+            if(response === 'success')
+            {
+                alert('Yay!');
+
+            }
+            else
+            {
+                alert('Error! ');
+
+            }
+            });
+}
+    $('#button2').click(function(e){
+                        e.preventDefault();
+                        // Code goes here
+                        });
+
+
+// changes
+
+
+	  </script>
+
+<!--    {% endif %}-->
+
+
+    </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+        {% load static %}
+<html>
+	<head>
+		<title>SANDtex</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href='{% static "/assets/css/main.css" %}' />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">SANDtex</a>
+				<nav>
+					<a href='#menu'>Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About Us</a></li>
+					<li><a href="{% url 'login' %}">Log In</a></li>
+					<li><a href="{% url 'register' %}">Sign Up</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>SANDtex</h1>
+					<p>An online LaTex editor that allows real-time collaboration and<br />
+					and online compiling of project to PDF format.</p>
+				</div>
+			</section>
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+						<h2>Services we offer</h2>
+						<p>We provide a common ground to a user to edit Latex documents in a very efficient way.</p>
+					</header>
+					<div class="highlights">
+						<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-edit"><span class="label">Icon</span></a>
+									<h3>Online collaboration</h3>
+								</header>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-file-pdf-o"><span class="label">Icon</span></a>
+									<h3>PDF Generation</h3>
+								</header>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-handshake-o"><span class="label">Icon</span></a>
+									<h3>Real-time Sharing</h3>
+								</header>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-code"><span class="label">Icon</span></a>
+									<h3>LaTex Editor</h3>
+								</header>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+		<!-- About Us -->
+			<section id="cta" class="wrapper">
+				<div class="inner">
+					<h2>About Us</h2>
+					<p>This is a great tool to create documents. It's based on the 'WYSIWYM' (what you see is what you mean) idea, meaning you only have to focus on the contents of your document and the computer will take care of the formatting. With this kind of environment, it's very easy to create professional-looking material.</p>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Our Project</h3>
+							<p>The very idea of our project is derived from ShareLaTex which is a popular website providing similar services to its user.</p>
+						</section>
+						<section>
+							<h4>Developing Team</h4>
+							<ul class="alt">
+								<li><a href="#">Samanyu Srivastava</a></li>
+								<li><a href="#">Abhishek Mittal</a></li>
+								<li><a href="#">Nikhil Arora</a></li>
+								<li><a href="#">Divyansh Srivastava</a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Reach Us</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-google-plus">&nbsp;</i>Gmail</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src='{% static "/assets/js/jquery.min.js" %}'></script>
+			<script src='{% static "/assets/js/browser.min.js" %}'></script>
+			<script src='{% static "/assets/js/breakpoints.min.js" %}'></script>
+			<script src='{% static "/assets/js/util.js" %}'></script>
+			<script src='{% static "/assets/js/main.js" %}'></script>
+
+	</body>
+</html>

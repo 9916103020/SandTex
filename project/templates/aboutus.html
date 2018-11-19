@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+        {% load static %}
+<html>
+	<head>
+		<title>SANDtex</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href='{% static "/assets/css/main.css" %}' />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">SANDtex</a>
+				<nav>
+					<a href='#menu'>Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About Us</a></li>
+					<li><a href="{% url 'login' %}">Log In</a></li>
+					<li><a href="{% url 'register' %}">Sign Up</a></li>
+				</ul>
+			</nav>
+
+
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>About Us</h1>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+						<p>This is a great tool to create documents. It's based on the 'WYSIWYM' (what you see is what you mean) idea, meaning you only have to focus on the contents of your document and the computer will take care of the formatting. With this kind of environment, it's very easy to create professional-looking material. </p>
+						<p>The site includes the following features: </p>
+						<ul>
+							<li>private projects</li>
+							<li>real-time collaboration between collaborators (maximum 2 collaborators per project)</li>
+							<li>spell-check</li>
+							<li>one-click compilation to PDF</li>
+						</ul>
+						<p>The basic architecture of the site includes an editor for writing LaTeX programs with an embedded compiler which compiles the code written by the user and thus creates a pdf for the entire project. The editor also facilitates the real time text sharing for the collaborated users. Moreover, it is a hassle free environment for professionals of various fields providing them an efficient way to prepare their projects.</p>
+						<p>With this project you get the same project set-up wherever you go. By working with your colleagues and students on project, you know that you're not going to hit any version inconsistencies or package conflicts.There will be no synchronization problem as every single change of character is visible at real time to all the other collaborators which will lead to more accurate projects in relatively less time.In a  collaboration or on your own, sometimes mistakes are made. Reverting back to previous versions is simple and removes the risk of losing work or regretting a change.It will make sure you are always up to date with your collaborators and what they are doing.</p>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Our Project</h3>
+							<p>The very idea of our project is derived from ShareLaTex which is a popular website providing similar services to its user.</p>
+						</section>
+						<section>
+							<h4>Developing Team</h4>
+							<ul class="alt">
+								<li><a href="#">Samanyu Srivastava</a></li>
+								<li><a href="#">Abhishek Mittal</a></li>
+								<li><a href="#">Nikhil Arora</a></li>
+								<li><a href="#">Divyansh Srivastava</a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Reach Us</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-google-plus">&nbsp;</i>Gmail</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</footer>
+
+<!-- Scripts -->
+			<script src='{% static "/assets/js/jquery.min.js" %}'></script>
+			<script src='{% static "/assets/js/browser.min.js" %}'></script>
+			<script src='{% static "/assets/js/breakpoints.min.js" %}'></script>
+			<script src='{% static "/assets/js/util.js" %}'></script>
+			<script src='{% static "/assets/js/main.js" %}'></script>
+
+	</body>
+</html>

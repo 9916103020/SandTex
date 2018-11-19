@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+        {% load static %}
+<html>
+	<head>
+		<title>SANDtex</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href='{% static "/assets/css/main.css" %}' />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">SANDtex</a>
+				<nav>
+					<a href='#menu'>Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About Us</a></li>
+					<li><a href="{% url 'login' %}">Log In</a></li>
+					<li><a href="{% url 'register' %}">Sign Up</a></li>
+				</ul>
+			</nav>
+
+{% block body %}
+<div class="container">
+    <h2>Logout</h2>
+    <p>You Logged Out!</p>
+    <div class="container">
+    <p><h2>You have successfull logout!</h2></p>
+    <a href="{% url 'home' %}">Home</a>&nbsp&nbsp&nbsp<a href="{% url 'login' %}">LogIn</a>
+</div>
+    {% endblock %}
+</div>
+
+           <!-- Scripts -->
+			<script src='{% static "/assets/js/jquery.min.js" %}'></script>
+			<script src='{% static "/assets/js/browser.min.js" %}'></script>
+			<script src='{% static "/assets/js/breakpoints.min.js" %}'></script>
+			<script src='{% static "/assets/js/util.js" %}'></script>
+			<script src='{% static "/assets/js/main.js" %}'></script>
+    </body>
+</html>
