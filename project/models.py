@@ -9,6 +9,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     password = models.CharField(max_length=200, default='', editable=True, null=True)
     cpassword = models.CharField(max_length=200, default='0000000', editable=True, null=True)
+    
+    
+class Editor(models.Model):
+    title = models.CharField(max_length=120)
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 def create_profile(sender, **kwargs):
