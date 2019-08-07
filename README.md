@@ -13,7 +13,7 @@ This is an website which gives advantage to user for compiling latex file and ob
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/9916103020/intern_work3.git
+git clone https://github.com/9916103020/SandTex.git
 ```
 
 Install the requirements:
